@@ -72,7 +72,8 @@ class UserController extends Controller
      */
     public function datatable(Request $request)
     {
-        $userList = $this->user::where('id','!=',auth()->id())->get();
+        $userList = $this->user::where('id','!=',auth()->id())
+                    ->get();
         return DataTables::of($userList)
                 ->editColumn('joining_date', function ($user) {
                     return @$user->joining_date_text;
@@ -89,7 +90,10 @@ class UserController extends Controller
                 ->addColumn('status', function ($user) {
                     return View::make($this->view.'status', ['user'=>$user])->render();
                 })
-                ->rawColumns(['joining_date','status','gender','action','phone'])
+                ->editColumn('updated_at', function ($user) {
+                    return $user->proper_updated_at;
+                })
+                ->rawColumns(['joining_date','status','gender','action','phone','updated_at'])
                 ->make(true);
     }
 

@@ -30,6 +30,7 @@
                 <th>{{__('formname.phone')}}</th>
                 <th>{{__('formname.department')}}</th>
                 <th>{{__('formname.joining_date')}}</th>
+                <th>{{__('formname.updated_at')}}</th>
                 <th>{{__('formname.status')}}</th>
                 <th>{{__('formname.action')}}</th>
             </thead>

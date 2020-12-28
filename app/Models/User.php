@@ -99,6 +99,18 @@ class User extends Authenticatable
     }
 
     /*
+     * sets updated_at  on formate ddmmYYYY
+     */
+    public function getProperUpdatedAtAttribute(){
+        if ($this->attributes['updated_at'] != null) {
+            $value = $this->attributes['updated_at'];
+            return '<span class="hid_spn">' . date('YmdHis', strtotime($value)) . '</span>' . date('d-m-Y', strtotime($value));
+        } else {
+            return null;
+        }
+    }
+
+    /*
      * sets joinng date on formate ddmmYYYY
      */
     public function getJoiningDateText2Attribute(){

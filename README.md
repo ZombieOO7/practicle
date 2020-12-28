@@ -17,3 +17,7 @@ Basic project start up. Initialise with admin database and some modules ready to
  5. Create database structure by fire a below command on ROOT folder of project
  
 	 `php artisan migrate`
+
+ 6.  For initial records, Please fire below command  
+ 
+	 `php artisan db:seed`

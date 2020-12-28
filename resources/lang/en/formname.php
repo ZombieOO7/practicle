@@ -18,6 +18,8 @@ return [
     'action' => 'Action',
     'status' => 'Status',
     'phone' => 'phone',
+    'created_at' => 'Created At',
+    'updated_at' => 'Last updated At',
 ];
 
 ?>

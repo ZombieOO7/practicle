@@ -1,16 +1,16 @@
 var table = $('#userTable').DataTable({
     stateSave:true,
+    "searching": true,
     "processing": true,
-    "order": 6,
+    "order": 5,
     "responsive":!0,
-    "oLanguage": {
-        "sEmptyTable":"No Record Found",
-    },
+    // "oLanguage": {
+    //     "sEmptyTable":"No Record Found",
+    // },
     "lengthMenu": [10, 25, 50, 75, 100 ],
     "serverSide": true,
     "bInfo": true,
-    "autoWidth": false,
-    "searching": true,
+    "autoWidth": true,
     "orderCellsTop": true,
     "columns": [
         {
@@ -32,6 +32,9 @@ var table = $('#userTable').DataTable({
             'data': 'joining_date',
         },
         {
+            'data': 'updated_at',
+        },
+        {
             'data': 'status',
         },
         {
@@ -41,10 +44,10 @@ var table = $('#userTable').DataTable({
         }
     ],
     "bPaginate":true,
-    dom: doms,
-    buttons:button,
+    // dom: doms,
+    // buttons:button,
     initComplete: function () {
-        this.api().columns([5]).visible(false);
+        // this.api().columns([5]).visible(false);
     },
     
     "ajax": {
@@ -81,13 +84,6 @@ $(document).on('click', '.edit', function () {
             }
         },
         failure:function(response){
-            if(response.errors){
-                errors = response.errors;
-                $.each(errors,function(index,value){
-                    console.log(index);
-                    console.log(value);
-                })
-            }
         }
     })
 })
